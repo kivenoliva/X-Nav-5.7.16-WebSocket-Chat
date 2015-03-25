@@ -43,7 +43,7 @@
 			s.onmessage = function (e) {
 				console.log("Socket message:", e.data);
 				var p = document.createElement("p");
-				p.innerHTML = e.data;
+				p.innerHTML = "Mensaje Recibido: " + e.data;
 				output.appendChild(p);
 			};
 			
@@ -58,6 +58,9 @@
 		form.addEventListener("submit", function (e) {
 			e.preventDefault();
 			s.send(inputBox.value);
+			var p = document.createElement("p");
+			p.innerHTML = "Mensaje Enviado: " + inputBox.value;
+			output.appendChild(p);
 			inputBox.value = "";
 		}, false)
  
